@@ -1,0 +1,26 @@
+BORO_NM:	String	The name of the borough in which the incident occurred	0
+Total crimes in BRONX	17347
+Total crimes in BROOKLYN	27258
+Total crimes in MANHATTAN	22232
+Total crimes in QUEENS	18937
+Total crimes in STATEN ISLAND	3854
+Maxday	31
+Minday	1
+Maxendday	31
+Minendday	1
+Maxendmonth	12
+Minendmonth	1
+CMPLNT_TO_TM:	String	Ending time of occurrence for the reported event, if exact time of occurrence is unknown)	0
+CMPLNT_TO_DT:	DateTime	 Ending date of occurrence for the reported event, if exact time of occurrence is unknown	0
+Maxendyear	2019
+Minendyear	2006
+Latitude:	String	Latitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326)	0
+Longitude:	String	Longitude coordinate for Global Coordinate System, WGS 1984, decimal degrees (EPSG 4326)	0
+Maxmonth	12
+Minmonth	1
+CMPLNT_FR_TM:	String	Exact time of occurrence for the reported event (or starting time of occurrence, if CMPLNT_TO_TM exists)	0
+OFNS_DESC:	String	Description of offense corresponding with key code	0
+Total Crimes	89628
+CMPLNT_FR_DT:	DateTime	 Exact date of occurrence for the reported event (or starting date of occurrence, if CMPLNT_TO_DT exists)	0
+Maxyear	2019
+Minyear	2006
