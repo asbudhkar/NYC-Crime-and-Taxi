@@ -1,3 +1,4 @@
+# Study of relationship between NYPD complaints data and NYC Yellow taxi data
 --Steps to ingest the data:
 -- Crime
 
@@ -30,7 +31,7 @@ hdfs dfs -put filename.csv crimeData.csv
 Data Source Used: 2018 Yellow Taxi Trip Data
 https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-Year-To-Date-/5uac-w243
 
-Click on ‘View Data’ then Export CSV
+Click on â€˜View Dataâ€™ then Export CSV
 
 1) Download the CSV from the website using export as CSV
 
