@@ -1,6 +1,6 @@
 # Study of relationship between NYPD complaints data and NYC Yellow taxi data
---Steps to ingest the data:
--- Crime
+## Steps to ingest the data:
+### Crime
 
 Data Source Used: NYPD Complaint Data Current (Year To Date), Historic
 https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-Year-To-Date-/5uac-w243
@@ -27,7 +27,7 @@ cd projectRDBA
 
 hdfs dfs -put filename.csv crimeData.csv
 
---Taxi
+### Taxi
 Data Source Used: 2018 Yellow Taxi Trip Data
 https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Current-Year-To-Date-/5uac-w243
 
@@ -52,7 +52,7 @@ hdfs dfs -put taxi.csv   taxiData.csv
 6) Use the dataset stored in hadoop for cleaning and profiling code
 
 
--- TaxiZone
+### TaxiZone
 Data Source Used: NYC Taxi Zones
 https://data.cityofnewyork.us/Transportation/NYC-Taxi-Zones/d3c5-ddgc
 
@@ -80,12 +80,12 @@ hdfs dfs -put filename.csv taxizone.csv
 
 6) Use the dataset stored in hadoop for cleaning and profiling code
 
--- Steps to clean the data:
+## Steps to clean the data:
 
--- Cleaning: 
--- crimeData.csv must be injested in hadoop as given in ingestion code
--- taxiData.csv must be injested in hadoop as given in ingestion code
--- taxizone.csv must be injested in hadoop as given in ingestion code
+### Cleaning: 
+1. crimeData.csv must be injested in hadoop as given in ingestion code
+2. taxiData.csv must be injested in hadoop as given in ingestion code
+3. taxizone.csv must be injested in hadoop as given in ingestion code
 
 javac -classpath `yarn classpath` -d . Cleaning.java CleaningMapper.java CleaningReducer.java
 jar -cvf jar.jar *.class 
@@ -112,8 +112,8 @@ hdfs dfs -get CleaningZData/part-00000 cleanTaxiZoneData.csv
 hdfs dfs -put cleanTaxiZoneData.csv
 
 
--- Profiling:
--- Insert the cleanCrime.csv in Hadoop to profile the required columns
+## Profiling:
+Insert the cleanCrime.csv in Hadoop to profile the required columns
 
 javac -classpath `yarn classpath` -d . Profiling.java ProfilingMapper.java ProfilingReducer.java
 jar -cvf jar.jar *.class
@@ -122,20 +122,20 @@ hdfs dfs -cat profilingOutput/part-00000
 hdfs dfs -get profilingOutput/part-00000 profileOut.txt
 
 
--- Analytics code
+## Analytics code
 
--- Put the cleaned taxi data in hadoop in folder taxiinput
+### Put the cleaned taxi data in hadoop in folder taxiinput
 hdfs dfs -mkdir taxiinput
 hdfs dfs -put cleanTaxiData.csv taxiinput/cleanTaxiData.csv
 
--- Put the cleaned crime data in hadoop in folder crimeinput
+### Put the cleaned crime data in hadoop in folder crimeinput
 hdfs dfs -mkdir crimeinput
 hdfs dfs -put cleanCrimeData.csv crimeinput/cleanCrimeData.csv
 
--- Put the cleaned taxizone data in hadoop in folder taxizone
+### Put the cleaned taxizone data in hadoop in folder taxizone
 hdfs dfs -mkdir taxizone
 hdfs dfs -put cleanTaxiZoneData.csv taxizone/cleanTaxiZoneData.csv
 
---Execute script in beeline
+### Execute script in beeline
 beeline -u jdbc:hive2://babar.es.its.nyu.edu:10000/ -n netid -p pass -f analytics.sql
 
